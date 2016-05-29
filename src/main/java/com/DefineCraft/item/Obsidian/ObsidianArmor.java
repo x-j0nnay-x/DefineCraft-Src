@@ -1,6 +1,7 @@
 package com.DefineCraft.item.Obsidian;
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModItems;
 import com.DefineCraft.common.Ref;
 
 
@@ -24,11 +25,11 @@ public class ObsidianArmor extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == DefineCraftMod.ObsidianHelmet || stack.getItem() == DefineCraftMod.ObsidianChest || stack.getItem() == DefineCraftMod.ObsidianBoots) 
+		if (stack.getItem() == DefineCraftModItems.ObsidianHelmet || stack.getItem() == DefineCraftModItems.ObsidianChest || stack.getItem() == DefineCraftModItems.ObsidianBoots) 
 		{
 			return Ref.MODID + ":models/armor/Obsidian1.png";
 		}
-		else if(stack.getItem() == DefineCraftMod.ObsidianLegs)
+		else if(stack.getItem() == DefineCraftModItems.ObsidianLegs)
 		{
 			return Ref.MODID + ":models/armor/Obsidian2.png";
 		}

@@ -2,6 +2,7 @@ package com.DefineCraft.block.Grinder;
 
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
@@ -434,7 +435,7 @@ public class GrinderLogic extends TileEntityFurnace
         {
             Item item = par0ItemStack.getItem();
 
-           if (item == DefineCraftMod.GrinderHead)
+           if (item == DefineCraftModItems.GrinderHead)
                 return 1000;
             return GameRegistry.getFuelValue(par0ItemStack);
         }

@@ -3,6 +3,7 @@ package com.DefineCraft.block;
 import java.util.Random;
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModItems;
 import com.DefineCraft.common.Ref;
 
 import net.minecraft.block.Block;
@@ -368,7 +369,7 @@ public class RefinedWoodenDoorBlock extends Block
 
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return (p_149650_1_ & 8) != 0 ? null : (this.blockMaterial == Material.iron ? DefineCraftMod.RefinedWoodenDoor : Items.wooden_door);
+        return (p_149650_1_ & 8) != 0 ? null : (this.blockMaterial == Material.iron ? DefineCraftModItems.RefinedWoodenDoor : Items.wooden_door);
     }
 
     public MovingObjectPosition collisionRayTrace(World p_149731_1_, int p_149731_2_, int p_149731_3_, int p_149731_4_, Vec3 p_149731_5_, Vec3 p_149731_6_)
@@ -414,7 +415,7 @@ public class RefinedWoodenDoorBlock extends Block
      */
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
-        return this.blockMaterial == Material.iron ? DefineCraftMod.RefinedWoodenDoor : Items.wooden_door;
+        return this.blockMaterial == Material.iron ? DefineCraftModItems.RefinedWoodenDoor : Items.wooden_door;
     }
 
     /**

@@ -11,9 +11,8 @@ public class GemOre extends Block {
 
 	public GemOre(String name) {
 		super(Material.rock);
-		setBlockName(Ref.MODID + "_" + name);
-		setBlockTextureName(Ref.MODID + ":" + name);
-		setCreativeTab(DefineCraftMod.DefineCraft);
+		this.setBlockName(Ref.MODID + "_" +name);
+		this.setBlockTextureName(Ref.MODID + ":" +name);
 		setHardness(2.0F);
 		setResistance(2.0F);
 	}

@@ -1,11 +1,15 @@
 package com.DefineCraft.item.HellStone;
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModBlocks;
+import com.DefineCraft.common.DefineCraftModItems;
 import com.DefineCraft.common.Ref;
-import com.DefineCraft.block.*;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import com.DefineCraft.Proxy.ClientProxy;
+import com.DefineCraft.block.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -34,31 +38,76 @@ public class HellStoneArmor extends ItemArmor
 		setCreativeTab(DefineCraftMod.DefineCraft);
 
 	}
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getArmorModel (EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot){
+		
+		ModelBiped armorModel = ClientProxy.armorModels.get(this);
+		
+		if(armorModel != null){
+    		armorModel.bipedHead.showModel = armorSlot == 0;
+    		armorModel.bipedHeadwear.showModel = true;
+    		armorModel.bipedBody.showModel = armorSlot == 1 || armorSlot == 2;
+    		armorModel.bipedRightArm.showModel = armorSlot == 1;
+    		armorModel.bipedLeftArm.showModel = armorSlot == 1;
+    		armorModel.bipedRightLeg.showModel = armorSlot == 2 || armorSlot == 3;
+    		armorModel.bipedLeftLeg.showModel = armorSlot == 2 || armorSlot == 3;
+    		
+    		armorModel.isSneak = entityLiving.isSneaking();
+    		armorModel.isRiding = entityLiving.isRiding();
+    		armorModel.isChild = entityLiving.isChild();
+    		
+    		armorModel.heldItemRight = 0;
+    		armorModel.aimedBow = false;
+    		
+    		EntityPlayer player = (EntityPlayer)entityLiving;
+    		
+    		ItemStack held_item = player.getEquipmentInSlot(0);
+    		
+    		if (held_item != null){
+    			armorModel.heldItemRight = 1;
+    			
+    			if (player.getItemInUseCount() > 0){
+    				
+    				EnumAction enumaction = held_item.getItemUseAction();
+    				
+    				if (enumaction == EnumAction.bow){
+    					armorModel.aimedBow = true;
+    				}else if (enumaction == EnumAction.block){
+    					armorModel.heldItemRight = 3;
+    				}
+    				
+    				
+    			}
+    			
+    		}
+    		
+    		
+		}
+		
+		
+		return armorModel;
+	}
 	
 
 
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == DefineCraftMod.HellStoneHelmet) 
+		if (stack.getItem() == DefineCraftModItems.HellStoneHelmet) 
 		{
 			return Ref.MODID + ":models/armor/hellstone1.png";
 		}
-		else if (stack.getItem() == DefineCraftMod.HellStoneChest) 
+		else if (stack.getItem() == DefineCraftModItems.HellStoneBoots) 
 		{
 			return Ref.MODID + ":models/armor/hellstone1.png";
 		}
-		else if (stack.getItem() == DefineCraftMod.HellStoneBoots) 
-		{
-			return Ref.MODID + ":models/armor/hellstone1.png";
-		}
-		else if(stack.getItem() == DefineCraftMod.HellStoneLegs)
+		else if(stack.getItem() == DefineCraftModItems.HellStoneLegs)
 		{
 			return Ref.MODID + ":models/armor/hellstone2.png";  
+		}if (stack.getItem() == DefineCraftModItems.HellStoneChest) 
+		{
+			return Ref.MODID + ":models/armor/HellStoneArmorChest.png";
 		}
-		//else if (stack.getItem() == DefineCraftMod.HellStoneChest) 
-		//{
-		//	return Ref.MODID + ":models/armor/HellStoneArmorChest.png";
-		//}
 		else
 		{
 			System.out.println("Invalid Item");
@@ -68,7 +117,7 @@ public class HellStoneArmor extends ItemArmor
 	//public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) 
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-		if (player.getCurrentArmor(0) != null &&player.getCurrentArmor(0).getItem().equals(DefineCraftMod.HellStoneBoots))
+		if (player.getCurrentArmor(0) != null &&player.getCurrentArmor(0).getItem().equals(DefineCraftModItems.HellStoneBoots))
 		{
 				for(int _x = -3; _x <= 3; _x++) {
 				for(int _z = -3; _z <= 3; _z++) {
@@ -82,22 +131,22 @@ public class HellStoneArmor extends ItemArmor
 							Block block = world.getBlock(x+_x, y, z+_z);
 					            //check and replace.
 					        if(block == Blocks.water && IsStill || block ==Blocks.flowing_water && IsStill){
-					    			world.setBlock(x+_x, y, z+_z, DefineCraftMod.meltingObsidian1);
+					    			world.setBlock(x+_x, y, z+_z, DefineCraftModBlocks.meltingObsidian1);
 					    			world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 					    			}
 					        if(block == Blocks.lava && IsStill || block ==Blocks.flowing_lava && IsStill){
-				    			world.setBlock(x+_x, y, z+_z, DefineCraftMod.meltingObsidian);
+				    			world.setBlock(x+_x, y, z+_z, DefineCraftModBlocks.meltingObsidian);
 				    			world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 				    			}
 					        if(block == Blocks.water && IsFlowing || block ==Blocks.flowing_water && IsFlowing || block == Blocks.lava && IsFlowing || block ==Blocks.flowing_lava && IsFlowing){
-				    			world.setBlock(x+_x, y, z+_z, DefineCraftMod.meltingObsidian0);
+				    			world.setBlock(x+_x, y, z+_z, DefineCraftModBlocks.meltingObsidian0);
 				    			world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 				    			}
 					      //has full armor
-							if (player.getCurrentArmor(0) != null &&player.getCurrentArmor(0).getItem().equals(DefineCraftMod.HellStoneBoots) && player.getCurrentArmor(1) != null &&player.getCurrentArmor(1).getItem().equals(DefineCraftMod.HellStoneLegs) && player.getCurrentArmor(2) != null &&player.getCurrentArmor(2).getItem().equals(DefineCraftMod.HellStoneChest) && player.getCurrentArmor(3) != null &&player.getCurrentArmor(3).getItem().equals(DefineCraftMod.HellStoneHelmet)){
+							if (player.getCurrentArmor(0) != null &&player.getCurrentArmor(0).getItem().equals(DefineCraftModItems.HellStoneBoots) && player.getCurrentArmor(1) != null &&player.getCurrentArmor(1).getItem().equals(DefineCraftModItems.HellStoneLegs) && player.getCurrentArmor(2) != null &&player.getCurrentArmor(2).getItem().equals(DefineCraftModItems.HellStoneChest) && player.getCurrentArmor(3) != null &&player.getCurrentArmor(3).getItem().equals(DefineCraftModItems.HellStoneHelmet)){
 								{
-								if (world.getBlockLightValue(x, y+1, z) <=8 && block0 != DefineCraftMod.VanishingLight){
-									 world.setBlock(x,y+1,z, DefineCraftMod.VanishingLight);
+								if (world.getBlockLightValue(x, y+1, z) <=8 && block0 != DefineCraftModBlocks.VanishingLight){
+									 world.setBlock(x,y+1,z, DefineCraftModBlocks.VanishingLight);
 									 world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), "step.stone", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 								 }
 								 if (player.isBurning()){
@@ -111,7 +160,7 @@ public class HellStoneArmor extends ItemArmor
 				}
 			}
 		//Just Chest
-			if (player.getCurrentArmor(2) != null &&player.getCurrentArmor(2).getItem().equals(DefineCraftMod.HellStoneChest)){
+			if (player.getCurrentArmor(2) != null &&player.getCurrentArmor(2).getItem().equals(DefineCraftModItems.HellStoneChest)){
 				player.fallDistance = 0.0F;
 				 player.capabilities.allowFlying = true;
 				}

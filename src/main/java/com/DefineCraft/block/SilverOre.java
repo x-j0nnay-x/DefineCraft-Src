@@ -11,8 +11,8 @@ public class SilverOre extends Block {
 
 	public SilverOre(String name) {
 		super(Material.rock);
-		setBlockName(Ref.MODID + "_" + name);
-		setBlockTextureName(Ref.MODID + ":" + name);
+		this.setBlockName(Ref.MODID + "_" +name);
+		this.setBlockTextureName(Ref.MODID + ":" +name);
 		setCreativeTab(DefineCraftMod.DefineCraft);
 		setHardness(2.0F);
 		setResistance(2.0F);

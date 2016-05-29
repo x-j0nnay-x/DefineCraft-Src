@@ -9,8 +9,8 @@ import net.minecraft.item.Item;
 public class LogicChip extends Item{
       
        public LogicChip(String itemName){
-               setUnlocalizedName(Ref.MODID + "_" + itemName);
-               setTextureName(Ref.MODID + ":" + itemName);
+               this.setUnlocalizedName(Ref.MODID + "_" +itemName);
+               this.setTextureName(Ref.MODID + ":" + itemName);
        		setCreativeTab(DefineCraftMod.DefineCraft);
        }
 

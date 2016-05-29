@@ -2,6 +2,7 @@ package com.DefineCraft.item;
 
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModBlocks;
 import com.DefineCraft.common.Ref;
 
 import net.minecraft.block.Block;
@@ -17,9 +18,9 @@ import net.minecraft.world.World;
 public class RefinedWoodenDoorItem extends Item{
       
        public RefinedWoodenDoorItem(String itemName){
-               setUnlocalizedName(Ref.MODID + "_" + itemName);
-               setTextureName(Ref.MODID + ":" + itemName);
-       		setCreativeTab(DefineCraftMod.DefineCraft);
+    	   this.setUnlocalizedName(Ref.MODID + "_" +itemName);
+           this.setTextureName(Ref.MODID + ":" + itemName);
+   		setCreativeTab(DefineCraftMod.DefineCraft);
        }
        public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
        {
@@ -34,7 +35,7 @@ public class RefinedWoodenDoorItem extends Item{
 
                
                {
-                   var11 = DefineCraftMod.RefinedWoodenDoorBlock;
+                   var11 = DefineCraftModBlocks.RefinedWoodenDoorBlock;
                }
 
                if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_ + 1, p_77648_6_, p_77648_7_, p_77648_1_))

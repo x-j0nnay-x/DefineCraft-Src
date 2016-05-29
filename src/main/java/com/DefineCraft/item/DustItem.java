@@ -8,9 +8,9 @@ import com.DefineCraft.common.Ref;
 public class DustItem extends Item{
     
     public DustItem(String itemName){
-            setUnlocalizedName(Ref.MODID + "_" + itemName);
-            setTextureName(Ref.MODID + ":" + itemName);
-    		setCreativeTab(DefineCraftMod.DefineCraft);
+    	   this.setUnlocalizedName(Ref.MODID + "_" +itemName);
+           this.setTextureName(Ref.MODID + ":" + itemName);
+   			setCreativeTab(DefineCraftMod.DefineCraft);
     }
 
 }

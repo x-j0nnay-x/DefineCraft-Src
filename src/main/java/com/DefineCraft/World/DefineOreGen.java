@@ -3,6 +3,7 @@ package com.DefineCraft.World;
 import java.util.Random;
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -38,10 +39,10 @@ public class DefineOreGen implements IWorldGenerator
 	private void generateOverWorld(World world, Random rand, int i, int j)
     {
 		//your-block,metadata-of-block,Block-spawns-on,World,Ran,i=XPos,j=ZPos,maxX,maxZ,maxVeinSize,chancesToSpawn,minY,maxY)
-		addOreSpawn(DefineCraftMod.SilverOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 7 + rand.nextInt(5), 5, 20, 38);
-		addOreSpawn(DefineCraftMod.TerbiumOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 7 + rand.nextInt(5), 5, 10, 28);
-		addOreSpawn(DefineCraftMod.PeridotOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 2, 4, 10, 18);
-		addOreSpawn(DefineCraftMod.GemOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 2, 4, 10, 18);
+		addOreSpawn(DefineCraftModBlocks.SilverOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 7 + rand.nextInt(5), 5, 20, 38);
+		addOreSpawn(DefineCraftModBlocks.TerbiumOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 7 + rand.nextInt(5), 5, 10, 28);
+		addOreSpawn(DefineCraftModBlocks.PeridotOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 5+ rand.nextInt(5), 5, 10, 18);
+		addOreSpawn(DefineCraftModBlocks.GemOre, 0, Blocks.stone, world, rand, i, j, 16, 16, 5, 5+ rand.nextInt(5), 10, 18);
 
        /* for (int y = 0; y < 38; y++)
         {
@@ -75,7 +76,7 @@ public class DefineOreGen implements IWorldGenerator
 
     private void generateNeather(World world, Random rand, int i, int j)
     {
-    	addOreSpawn(DefineCraftMod.HellStoneOre, 0, Blocks.netherrack, world, rand, i, j, 16, 16, 5 + rand.nextInt(5), 5, 20, 146);
+    	addOreSpawn(DefineCraftModBlocks.HellStoneOre, 0, Blocks.netherrack, world, rand, i, j, 16, 16, 5 + rand.nextInt(5), 5, 20, 146);
 
        /* for (int y = 0; y < 80; y++)
         {

@@ -15,7 +15,8 @@ public class ModleHellStoneArmorChest extends ModelBiped
   public ModleHellStoneArmorChest(float expand)
   {
 	 super(expand, 0, 128, 64);
-    
+    textureWidth = 128;
+    textureHeight = 64;
     
       
       wingAttatch0 = new ModelRenderer(this, 22, 35);

@@ -9,8 +9,7 @@ import com.DefineCraft.models.ModleHellStoneArmorChest;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 
-public interface IProxy
+public abstract class CommonProxy implements IProxy
 {
-public abstract void registerKeyBindings();
-public void register_renderers();
+
 }

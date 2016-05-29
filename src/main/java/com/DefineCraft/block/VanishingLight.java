@@ -31,9 +31,8 @@ public class VanishingLight extends Block
     {
     super(Material.circuits);
     this.setTickRandomly(true);
-	setBlockName(Ref.MODID + "_" + name);
-	setBlockTextureName(Ref.MODID + ":" + name);
-	//setBlockTextureName();
+    this.setBlockName(Ref.MODID + "_" +name);
+	this.setBlockTextureName(Ref.MODID + ":" +name);
 	setCreativeTab(DefineCraftMod.DefineCraft);
 	setHardness(100.0F);
 	setResistance(100.0F);

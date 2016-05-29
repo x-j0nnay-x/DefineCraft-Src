@@ -9,6 +9,7 @@ import java.util.Map;
 
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -38,7 +39,7 @@ public class GemChargerRecipes
     {
         //Grinder recipe adding
         //this.addGrinding(Main.DOre.getIdFromBlock(Main.DOre), new ItemStack(Main.DGem, 3), 1.0F);
-        this.addGrinding(DefineCraftMod.EmptyGem.getIdFromItem(DefineCraftMod.EmptyGem), new ItemStack(DefineCraftMod.EnergyGem, 1), 1.0F);
+        this.addGrinding(DefineCraftModItems.EmptyGem.getIdFromItem(DefineCraftModItems.EmptyGem), new ItemStack(DefineCraftModItems.EnergyGem, 1), 1.0F);
         
 
         

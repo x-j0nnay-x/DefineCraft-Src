@@ -1,6 +1,7 @@
 package com.DefineCraft.item.Terbium;
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModItems;
 import com.DefineCraft.common.Ref;
 
 
@@ -24,11 +25,11 @@ public class TerbiumArmor extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == DefineCraftMod.TerbiumHelmet || stack.getItem() == DefineCraftMod.TerbiumChest || stack.getItem() == DefineCraftMod.TerbiumBoots) 
+		if (stack.getItem() == DefineCraftModItems.TerbiumHelmet || stack.getItem() == DefineCraftModItems.TerbiumChest || stack.getItem() == DefineCraftModItems.TerbiumBoots) 
 		{
 			return Ref.MODID + ":models/armor/Terbium1.png";
 		}
-		else if(stack.getItem() == DefineCraftMod.TerbiumLegs)
+		else if(stack.getItem() == DefineCraftModItems.TerbiumLegs)
 		{
 			return Ref.MODID + ":models/armor/Terbium2.png";
 		}

@@ -9,6 +9,8 @@ import java.util.Map;
 
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModBlocks;
+import com.DefineCraft.common.DefineCraftModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -38,15 +40,16 @@ public class GrinderRecipes
     {
         //Grinder recipe adding
         //this.addGrinding(Main.DOre.getIdFromBlock(Main.DOre), new ItemStack(Main.DGem, 3), 1.0F);
-        this.addGrinding(DefineCraftMod.SilverOre.getIdFromBlock(DefineCraftMod.SilverOre), new ItemStack(DefineCraftMod.SilverDust, 2), 1.0F);
-        this.addGrinding(DefineCraftMod.TerbiumOre.getIdFromBlock(DefineCraftMod.TerbiumOre), new ItemStack(DefineCraftMod.TerbiumDust, 2), 1.0F);
-        this.addGrinding(DefineCraftMod.HellStoneOre.getIdFromBlock(DefineCraftMod.HellStoneOre), new ItemStack(DefineCraftMod.HellStoneDust, 2), 1.0F);
-        this.addGrinding(DefineCraftMod.PeridotOre.getIdFromBlock(DefineCraftMod.PeridotOre), new ItemStack(DefineCraftMod.Peridot, 2), 1.0F);
-        this.addGrinding(Blocks.obsidian.getIdFromBlock(Blocks.obsidian), new ItemStack(DefineCraftMod.ObsidianDust, 2), 1.0F);
-        this.addGrinding(Blocks.iron_ore.getIdFromBlock(Blocks.iron_ore), new ItemStack(DefineCraftMod.IronDust, 2), 1.0F);
-        this.addGrinding(Blocks.gold_ore.getIdFromBlock(Blocks.gold_ore), new ItemStack(DefineCraftMod.GoldDust, 2), 1.0F);
-        this.addGrinding(Blocks.diamond_ore.getIdFromBlock(Blocks.diamond_ore), new ItemStack(DefineCraftMod.DiamondDust, 2), 1.0F);
+        this.addGrinding(DefineCraftModBlocks.SilverOre.getIdFromBlock(DefineCraftModBlocks.SilverOre), new ItemStack(DefineCraftModItems.SilverDust, 2), 1.0F);
+        this.addGrinding(DefineCraftModBlocks.TerbiumOre.getIdFromBlock(DefineCraftModBlocks.TerbiumOre), new ItemStack(DefineCraftModItems.TerbiumDust, 2), 1.0F);
+        this.addGrinding(DefineCraftModBlocks.HellStoneOre.getIdFromBlock(DefineCraftModBlocks.HellStoneOre), new ItemStack(DefineCraftModItems.HellStoneDust, 2), 1.0F);
+        this.addGrinding(DefineCraftModBlocks.PeridotOre.getIdFromBlock(DefineCraftModBlocks.PeridotOre), new ItemStack(DefineCraftModItems.Peridot, 3), 1.0F);
+        this.addGrinding(Blocks.obsidian.getIdFromBlock(Blocks.obsidian), new ItemStack(DefineCraftModItems.ObsidianDust, 2), 1.0F);
+        this.addGrinding(Blocks.iron_ore.getIdFromBlock(Blocks.iron_ore), new ItemStack(DefineCraftModItems.IronDust, 2), 1.0F);
+        this.addGrinding(Blocks.gold_ore.getIdFromBlock(Blocks.gold_ore), new ItemStack(DefineCraftModItems.GoldDust, 2), 1.0F);
+        this.addGrinding(Blocks.diamond_ore.getIdFromBlock(Blocks.diamond_ore), new ItemStack(DefineCraftModItems.DiamondDust, 2), 1.0F);
         this.addGrinding(Blocks.coal_ore.getIdFromBlock(Blocks.coal_ore), new ItemStack(Items.coal, 2), 1.0F);
+        this.addGrinding(Blocks.gravel.getIdFromBlock(Blocks.gravel), new ItemStack(Items.flint, 3), 1.0F);
 
         
     }

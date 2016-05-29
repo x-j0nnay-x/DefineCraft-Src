@@ -2,6 +2,7 @@ package com.DefineCraft.block.BarMaker;
 
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModItems;
 
 //import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
@@ -434,7 +435,7 @@ public class BarMakerLogic extends TileEntityFurnace
         {
             Item item = par0ItemStack.getItem();
 
-           if (item == DefineCraftMod.EnergyGem)
+           if (item == DefineCraftModItems.EnergyGem)
                 return 5000;
             return GameRegistry.getFuelValue(par0ItemStack);
         }
@@ -501,7 +502,7 @@ public class BarMakerLogic extends TileEntityFurnace
     @Override
     public boolean canExtractItem (int par1, ItemStack par2ItemStack, int par3)
     {
-        return par3 != 0 || par1 != 1 || par2ItemStack.getItem() == DefineCraftMod.EmptyGem;
+        return par3 != 0 || par1 != 1 || par2ItemStack.getItem() == DefineCraftModItems.EmptyGem;
     }
 
     public boolean getActive ()

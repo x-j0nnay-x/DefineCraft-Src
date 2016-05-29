@@ -1,6 +1,7 @@
 package com.DefineCraft.item.Silver;
 
 import com.DefineCraft.common.DefineCraftMod;
+import com.DefineCraft.common.DefineCraftModItems;
 import com.DefineCraft.common.Ref;
 
 
@@ -24,11 +25,11 @@ public class SilverArmor extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == DefineCraftMod.SilverHelmet || stack.getItem() == DefineCraftMod.SilverChest || stack.getItem() == DefineCraftMod.SilverBoots) 
+		if (stack.getItem() == DefineCraftModItems.SilverHelmet || stack.getItem() == DefineCraftModItems.SilverChest || stack.getItem() == DefineCraftModItems.SilverBoots) 
 		{
 			return Ref.MODID + ":models/armor/Silver1.png";
 		}
-		else if(stack.getItem() == DefineCraftMod.SilverLegs)
+		else if(stack.getItem() == DefineCraftModItems.SilverLegs)
 		{
 			return Ref.MODID + ":models/armor/Silver2.png";
 		}
